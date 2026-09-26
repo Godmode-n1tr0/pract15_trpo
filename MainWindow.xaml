@@ -1,0 +1,13 @@
+<Window x:Class="TRPO.ElectronicsStore.MainWindow"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ Title="Магазин электроники — Вход" Width="1000" Height="650"
+ MinWidth="780" MinHeight="600" WindowStartupLocation="CenterScreen"
+ Background="{StaticResource PageBackground}">
+ <Grid x:Name="PageHost" SizeChanged="PageHost_SizeChanged">
+  <Viewbox Stretch="Uniform" StretchDirection="DownOnly">
+   <Frame Width="760" Height="560" x:Name="PageFrame" NavigationUIVisibility="Hidden" JournalOwnership="OwnsJournal"
+        Navigating="PageFrame_Navigating" Navigated="PageFrame_Navigated"/>
+  </Viewbox>
+ </Grid>
+</Window>

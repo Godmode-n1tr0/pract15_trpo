@@ -1,0 +1,13 @@
+<Page x:Class="TRPO.ElectronicsStore.Pages.LoginPage"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Вход">
+ <Grid Margin="24">
+  <StackPanel Width="340" HorizontalAlignment="Center" VerticalAlignment="Center">
+   <TextBlock Text="Магазин электроники" Style="{StaticResource Heading}" HorizontalAlignment="Center"/>
+   <Button Content="Войти как посетитель" Margin="0,12,0,28" Click="VisitorLogin_Click"/>
+   <Label Content="PIN менеджера" Target="{Binding ElementName=PinBox}" Padding="0,0,0,4"/>
+   <PasswordBox x:Name="PinBox" Padding="6" MaxLength="32" KeyDown="PinBox_KeyDown"/>
+   <Button Content="Войти как менеджер" Margin="0,12,0,0" Click="ManagerLogin_Click"/>
+  </StackPanel>
+ </Grid>
+</Page>

@@ -57,12 +57,10 @@ public partial class CatalogPage : Page
             BrandBox.ItemsSource = brands;
             CategoryBox.SelectedValue = categories.Any(item => item.Id == selectedCategoryId) ? selectedCategoryId : 0;
             BrandBox.SelectedValue = brands.Any(item => item.Id == selectedBrandId) ? selectedBrandId : 0;
-            using (productView.DeferRefresh())
-            {
-                products.Clear();
-                foreach (var product in loadedProducts)
-                    products.Add(product);
-            }
+            // При изменении списка WPF сразу читает его, поэтому обновление не откладываем.
+            products.Clear();
+            foreach (var product in loadedProducts)
+                products.Add(product);
 
             isReady = true;
             ApplyFilters();
@@ -71,7 +69,7 @@ public partial class CatalogPage : Page
         }
         catch (Exception error)
         {
-            StatusText.Text = "Обновление не выполнено. Проверьте подключение и нажмите «Обновить».";
+            StatusText.Text = "Не удалось обновить каталог. Устраните причину ошибки и нажмите «Обновить».";
             UiMessages.ShowError(error);
         }
         finally

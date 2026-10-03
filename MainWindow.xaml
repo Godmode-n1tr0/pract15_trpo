@@ -3,7 +3,7 @@
  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
  Title="Магазин электроники — Вход" Width="1000" Height="650"
  MinWidth="780" MinHeight="600" WindowStartupLocation="CenterScreen"
- Background="{StaticResource PageBackground}">
+ Background="{StaticResource PageBackground}" UseLayoutRounding="True" SnapsToDevicePixels="True">
  <Grid x:Name="PageHost" SizeChanged="PageHost_SizeChanged">
   <Viewbox Stretch="Uniform" StretchDirection="DownOnly">
    <Frame Width="760" Height="560" x:Name="PageFrame" NavigationUIVisibility="Hidden" JournalOwnership="OwnsJournal"

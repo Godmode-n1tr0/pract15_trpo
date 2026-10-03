@@ -8,24 +8,43 @@
   <Setter Property="FontFamily" Value="Segoe UI"/>
   <Setter Property="FontSize" Value="14"/>
   <Setter Property="Foreground" Value="Black"/>
+  <Setter Property="UseLayoutRounding" Value="True"/>
+  <Setter Property="SnapsToDevicePixels" Value="True"/>
  </Style>
- <Style TargetType="PasswordBox"><Setter Property="BorderBrush" Value="{StaticResource Accent}"/><Setter Property="BorderThickness" Value="1"/></Style>
+ <Style TargetType="PasswordBox">
+  <Setter Property="BorderBrush" Value="{StaticResource Accent}"/>
+  <Setter Property="BorderThickness" Value="1"/>
+  <Setter Property="Background" Value="White"/>
+  <Setter Property="Padding" Value="10,6"/>
+  <Setter Property="MinHeight" Value="36"/>
+  <Setter Property="VerticalContentAlignment" Value="Center"/>
+ </Style>
  <Style TargetType="TextBox">
   <Setter Property="BorderBrush" Value="{StaticResource Accent}"/>
-  <Setter Property="Padding" Value="6,4"/>
-  <Setter Property="MinHeight" Value="30"/>
+  <Setter Property="BorderThickness" Value="1"/>
+  <Setter Property="Background" Value="White"/>
+  <Setter Property="Padding" Value="10,6"/>
+  <Setter Property="MinHeight" Value="36"/>
   <Setter Property="VerticalContentAlignment" Value="Center"/>
  </Style>
  <Style TargetType="ComboBox">
   <Setter Property="BorderBrush" Value="{StaticResource Accent}"/>
-  <Setter Property="Padding" Value="6,4"/>
-  <Setter Property="MinHeight" Value="30"/>
+  <Setter Property="BorderThickness" Value="1"/>
+  <Setter Property="Background" Value="White"/>
+  <Setter Property="Padding" Value="10,5"/>
+  <Setter Property="MinHeight" Value="36"/>
   <Setter Property="VerticalContentAlignment" Value="Center"/>
  </Style>
+ <Style TargetType="ListBox">
+  <Setter Property="Background" Value="White"/>
+  <Setter Property="BorderBrush" Value="{StaticResource Accent}"/>
+  <Setter Property="BorderThickness" Value="1"/>
+ </Style>
  <Style TargetType="Button">
-  <Setter Property="Padding" Value="12,6"/>
+  <Setter Property="Padding" Value="14,0"/>
   <Setter Property="Margin" Value="0,0,8,0"/>
-  <Setter Property="MinHeight" Value="32"/>
+  <Setter Property="Height" Value="36"/>
+  <Setter Property="MinWidth" Value="112"/>
   <Setter Property="Background" Value="{StaticResource Accent}"/>
   <Setter Property="Foreground" Value="Black"/>
   <Setter Property="BorderBrush" Value="#176660"/>
@@ -40,7 +59,7 @@
      <ControlTemplate.Triggers>
       <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Surface" Property="Background" Value="{StaticResource Secondary}"/></Trigger>
       <Trigger Property="IsPressed" Value="True"><Setter TargetName="Surface" Property="Opacity" Value="0.7"/></Trigger>
-      <Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="Surface" Property="BorderBrush" Value="Black"/><Setter TargetName="Surface" Property="BorderThickness" Value="2"/></Trigger>
+      <Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="Surface" Property="BorderBrush" Value="Black"/></Trigger>
       <Trigger Property="IsEnabled" Value="False"><Setter TargetName="Surface" Property="Opacity" Value="0.45"/></Trigger>
      </ControlTemplate.Triggers>
     </ControlTemplate>
@@ -52,12 +71,21 @@
  </Style>
  <Style x:Key="Heading" TargetType="TextBlock">
   <Setter Property="FontSize" Value="22"/><Setter Property="FontWeight" Value="SemiBold"/>
-  <Setter Property="Margin" Value="0,0,0,12"/>
+  <Setter Property="Margin" Value="0,0,0,16"/>
  </Style>
  <Style x:Key="FieldLabel" TargetType="TextBlock">
-  <Setter Property="Margin" Value="0,8,0,4"/>
+  <Setter Property="Margin" Value="0,12,0,6"/>
  </Style>
- <Style x:Key="ErrorText" TargetType="TextBlock">
-  <Setter Property="Foreground" Value="#A31515"/><Setter Property="TextWrapping" Value="Wrap"/>
+ <Style x:Key="FilterLabel" TargetType="TextBlock" BasedOn="{StaticResource FieldLabel}">
+  <Setter Property="Margin" Value="0,0,0,6"/>
+ </Style>
+ <Style x:Key="StatusMessage" TargetType="TextBlock">
+  <Setter Property="TextWrapping" Value="Wrap"/>
+  <Style.Triggers>
+   <Trigger Property="Text" Value=""><Setter Property="Visibility" Value="Collapsed"/></Trigger>
+  </Style.Triggers>
+ </Style>
+ <Style x:Key="ErrorText" TargetType="TextBlock" BasedOn="{StaticResource StatusMessage}">
+  <Setter Property="Foreground" Value="#A31515"/>
  </Style>
 </ResourceDictionary>
